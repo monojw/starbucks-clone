@@ -980,7 +980,7 @@ body {
   border-radius: 3px;
 }
 
-.favorite.animation .btn-fav {
+.favorite.animations .btn-fav {
   animation: fadeIn 3500ms ease;
 }
 
@@ -1028,7 +1028,7 @@ body {
   margin-right: -483px;
 }
 
-.magazine.animation .magazine-img {
+.magazine.animations .magazine-img {
   animation: fadeIn 3000ms ease;
 }
 
