@@ -10,9 +10,19 @@ setInterval(function () {
     rolling.style.top = 0;
   } else {
     rolling.style.top = -i * 24 + 'px';
-    console.log(-i * 25 + 'px');
   }
 }, 1000);
+
+/*  */
+document.querySelector('.notice .prom-btn').addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const current = e.currentTarget;
+  current.classList.toggle('prom-btn-click');
+
+  const prom = document.querySelector('.promotion');
+  prom.classList.toggle('prom-show');
+});
 
 /* GNB메뉴 마우스 이벤트 */
 const gnbSubWrap = document.querySelector('.gnb_sub_wrap');
