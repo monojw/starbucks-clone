@@ -8,7 +8,17 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/fonts.css" />
+    <link rel="stylesheet" href="assets/css/animation.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- bxSlider -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="./assets/js/bxslider.js"></script>
   </head>
   <body>
     <!-- GNB -->
@@ -497,9 +507,9 @@
                   </div>
                 </li>
 
-                <!-- what's news -->
+                <!-- what's new -->
                 <li class="gnb_nav06">
-                  <h2><a href="#">WHAT'S NEWS</a></h2>
+                  <h2><a href="#">WHAT'S NEW</a></h2>
                   <div class="gnb_sub_wrap">
                     <div class="gnb_sub">
                       <div class="gnb_sub_inner">
@@ -633,8 +643,12 @@
               <dd class="notice-rolling">
                 <ul>
                   <li>시스템 개선 및 점검 안내</li>
-                  <li>호호호</li>
-                  <li>하하하</li>
+                  <li>스타벅스 카드 유효기간 관련 안내</li>
+                  <li>시스템 개선 및 점검 안내</li>
+                  <li>
+                    사이렌 오더/딜리버스 음료 기본 설정 변경 안내 (HOT → ICED)
+                  </li>
+                  <li>시스템 개선 및 점검 안내</li>
                 </ul>
               </dd>
             </div>
@@ -666,6 +680,14 @@
       </div>
     </div>
     <!-- // NOTICE -->
+
+    <!-- PROMOTION -->
+    <div class="promotion">
+      <div class="promotion-container`">
+        <div class="bxslider"></div>
+      </div>
+    </div>
+    <!-- // PROMOTION -->
 
     <!-- REWARDS -->
     <div class="rewards">
@@ -708,7 +730,7 @@
     <!-- // REWARD -->
 
     <!-- BEAN -->
-    <div class="bean">
+    <div class="bean" id="scroll">
       <div class="bean-inner">
         <div class="img-area">
           <img
@@ -730,7 +752,7 @@
     <!-- // BEAN -->
 
     <!-- RESERVE -->
-    <div class="reserve">
+    <div class="reserve" id="scroll">
       <div class="reserve-inner">
         <div class="reserve-title">
           <img
@@ -754,7 +776,7 @@
     <!-- // RESERVE -->
 
     <!-- FAVORITE -->
-    <div class="favorite">
+    <div class="favorite" id="scroll">
       <div class="container">
         <div class="txt-area">
           <div class="txt1"></div>
@@ -769,7 +791,7 @@
     <!-- // FAVORITE -->
 
     <!-- MAGAZINE -->
-    <div class="magazine">
+    <div class="magazine" id="scroll">
       <div class="container">
         <div class="magazine-tit">
           <img
@@ -793,7 +815,7 @@
     <!-- // MAGAZINE -->
 
     <!-- STORE -->
-    <div class="store">
+    <div class="store" id="scroll">
       <div class="container">
         <div class="img1"></div>
         <div class="img2"></div>
@@ -809,7 +831,7 @@
     <!-- // STORE -->
 
     <!-- FOOTER -->
-    <div class="footer">
+    <div class="footer" id="scroll">
       <div class="menu-container">
         <!-- menu -->
         <div class="menu">
@@ -957,22 +979,5 @@
 
     <!-- JS -->
     <script src="./assets/js/index.js"></script>
-
-    <script>
-      const rolling = document.querySelectorAll('.notice-rolling li');
-      let i = 0;
-      let isShow = true;
-
-      setInterval(function () {
-        i = (i + 1) % rolling.length;
-        if ((rolling[i].style.marginTop = '5px')) {
-          rolling[i].style.marginTop = '-37px';
-        } else {
-          rolling[i].style.marginTop = '5px';
-          rolling[i].style.marginTop = '5px';
-        }
-        isShow = !isShow;
-      }, 1000);
-    </script>
   </body>
 </html>

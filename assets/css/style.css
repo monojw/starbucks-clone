@@ -271,11 +271,23 @@ body {
   left: 44px;
 }
 
+.main .slogan {
+  opacity: 0;
+  animation: fadeIn 700ms;
+  animation-fill-mode: forwards;
+}
+
 .main .img1 {
   position: absolute;
   top: 11.8%;
   left: 35.7%;
   width: 48.7%;
+}
+
+.main .img1 {
+  opacity: 0;
+  animation: fadeIn 2000ms ease-out 500ms;
+  animation-fill-mode: forwards;
 }
 
 .main .img2 {
@@ -285,11 +297,23 @@ body {
   width: 41.5%;
 }
 
+.main .img2 {
+  opacity: 0;
+  animation: fadeIn 2000ms ease-out 800ms;
+  animation-fill-mode: forwards;
+}
+
 .main .img3 {
   position: absolute;
   top: 15.6%;
   right: -8%;
   width: 26.9%;
+}
+
+.main .img3 {
+  opacity: 0;
+  animation: fadeIn 2000ms ease-out 1100ms;
+  animation-fill-mode: forwards;
 }
 
 .main .btn-slogan {
@@ -298,6 +322,12 @@ body {
   left: 6px;
   width: 335px;
   text-align: center;
+}
+
+.main.animations .btn-slogan {
+  opacity: 0;
+  animation: fadeIn 2000ms ease-out 1300ms;
+  animation-fill-mode: forwards;
 }
 
 .main .btn-slogan a {
@@ -310,7 +340,6 @@ body {
   border: 2px solid #d73a7a;
   border-radius: 5px;
   margin: 0 auto;
-  text-decoration: underline;
 }
 
 .main .btn-slogan a:hover {
@@ -399,6 +428,9 @@ body {
 }
 
 .bg-l .notice-inner .notice-inner-l .notice-rolling ul {
+  position: absolute;
+  top: 0;
+  left: 0;
   font-size: 14px;
   color: #fff;
 }
@@ -408,8 +440,8 @@ body {
   height: 24px;
   line-height: 24px;
 
-  /*  */
-  margin-top: 5px;
+  /* over */
+  overflow: hidden;
 }
 
 .bg-l .notice-inner .notice-inner-r {
@@ -471,6 +503,19 @@ body {
 .bg-r .prom-btn img {
   display: block;
   width: 100%;
+}
+
+/* PROMOTION */
+.promotion {
+  width: 100%;
+  height: 658px;
+  background: #f6f5ef;
+  border-top: 1px solid #f6f5ef;
+}
+
+.promotion .promotion-container {
+  margin: 0 auto;
+  height: 553px;
 }
 
 /* REWARDS */
@@ -623,6 +668,10 @@ body {
   width: 27.7%;
 }
 
+.bean.animations .img-area {
+  animation: fadeLeft 2000ms ease;
+}
+
 .bean .img-area img {
   display: block;
   width: 100%;
@@ -633,6 +682,10 @@ body {
   top: 31.9%;
   right: 17.4988%;
   width: 28.7%;
+}
+
+.bean.animations .txt-area {
+  animation: fadeRight 2000ms ease;
 }
 
 .bean .txt-area img {
@@ -691,6 +744,10 @@ body {
   right: 0;
   bottom: -5px;
   text-align: center;
+}
+
+.reserve.animations .reserve-visual {
+  animation: fadeIn 4000ms ease;
 }
 
 .reserve .reserve-visual::before {
@@ -773,6 +830,10 @@ body {
   overflow: hidden;
 }
 
+.favorite.animations .txt-area .txt1 {
+  animation: fadeLeft 2000ms ease;
+}
+
 .favorite .txt-area .txt2 {
   position: absolute;
   top: 370px;
@@ -782,6 +843,10 @@ body {
   width: 362px;
   height: 156px;
   overflow: hidden;
+}
+
+.favorite.animations .txt-area .txt2 {
+  animation: fadeLeft 3500ms ease;
 }
 
 .favorite .img-area {
@@ -801,6 +866,10 @@ body {
   height: 38px;
   border: 2px solid #fff;
   border-radius: 3px;
+}
+
+.favorite.animation .btn-fav {
+  animation: fadeIn 3500ms ease;
 }
 
 .favorite .btn-fav a {
@@ -845,6 +914,10 @@ body {
   top: 0;
   right: 50%;
   margin-right: -483px;
+}
+
+.magazine.animation .magazine-img {
+  animation: fadeIn 3000ms ease;
 }
 
 .magazine .btn-magazine-wrap {
@@ -905,16 +978,11 @@ body {
   background: url('https://www.starbucks.co.kr/common/img/main/store_exp_img01.png');
   width: 228px;
   height: 228px;
+  z-index: 4;
 }
 
-.store .img1 {
-  position: absolute;
-  top: 149px;
-  left: 390px;
-  background: url('https://www.starbucks.co.kr/common/img/main/store_exp_img01.png');
-  width: 228px;
-  height: 228px;
-  z-index: 4;
+.store.animations .img1 {
+  animation: fadeIn 3000ms ease;
 }
 
 .store .img2 {
@@ -927,6 +995,10 @@ body {
   z-index: 3;
 }
 
+.store.animations .img2 {
+  animation: fadeIn 3500ms ease;
+}
+
 .store .img3 {
   position: absolute;
   top: -60px;
@@ -934,6 +1006,10 @@ body {
   background: url('https://www.starbucks.co.kr/common/img/main/store_exp_img03.png');
   width: 343px;
   height: 142px;
+}
+
+.store.animations .img3 {
+  animation: fadeIn 4000ms ease;
 }
 
 .store .img4 {
@@ -945,6 +1021,10 @@ body {
   height: 102px;
 }
 
+.store.animations .img4 {
+  animation: fadeIn 4500ms ease;
+}
+
 .store .txt1 {
   position: absolute;
   top: 100px;
@@ -954,13 +1034,21 @@ body {
   height: 54px;
 }
 
+.store.animations .txt1 {
+  animation: fadeRight 1500ms ease;
+}
+
 .store .txt2 {
   position: absolute;
   top: 168px;
-  right: 168px;
+  right: 198px;
   background: url('https://www.starbucks.co.kr/common/img/main/store_txt02.png');
   width: 336px;
   height: 61px;
+}
+
+.store.animations .txt2 {
+  animation: fadeRight 3000ms ease;
 }
 
 .store .btn-store {
@@ -971,6 +1059,10 @@ body {
   height: 34px;
   border: 2px solid #222;
   border-radius: 3px;
+}
+
+.store.animation .btn-store {
+  animation: fadeRight 4000ms ease;
 }
 
 .store .btn-store a {

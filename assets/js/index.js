@@ -1,3 +1,20 @@
+/* 공지사항 슬라이더 */
+const rolling = document.querySelector('.notice-rolling ul');
+const lists = document.querySelectorAll('.notice-rolling li');
+
+let i = 0;
+
+setInterval(function () {
+  i = (i + 1) % lists.length;
+  if (i == 0) {
+    rolling.style.top = 0;
+  } else {
+    rolling.style.top = -i * 24 + 'px';
+    console.log(-i * 25 + 'px');
+  }
+}, 1000);
+
+/* GNB메뉴 마우스 이벤트 */
 const gnbSubWrap = document.querySelector('.gnb_sub_wrap');
 
 document.querySelectorAll('.gnb_bottom_inner > ul > li').forEach((v, i) => {
@@ -48,3 +65,21 @@ function hide(e) {
   const input = current.querySelector('input');
   input.style.display = 'none';
 }
+
+/* 스크롤시 이벤트, 애니메이션  */
+const scroll = document.querySelectorAll('#scroll');
+const windowHeight = window.innerHeight;
+
+function scrollAnimations() {
+  scroll.forEach((v, i) => {
+    const scrollTop = v.getBoundingClientRect().top;
+
+    if (windowHeight > scrollTop) {
+      v.classList.add('animations');
+    } else {
+      v.classList.remove('animations');
+    }
+  });
+}
+
+window.addEventListener('scroll', scrollAnimations);
