@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('.bxslider').bxSlider({
+  const a = $('.bxslider').bxSlider({
     auto: true,
     stopAutoOnClick: false,
     slideWidth: 600,
@@ -10,7 +10,9 @@ $(document).ready(function () {
     autoControls: false,
     autoStart: true,
     infiniteLoop: true,
-    speed: 2000,
+    speed: 700,
+    prevSelector: '.prev-btn',
+    nextSelector: '.next-btn',
 
     onSliderLoad: function () {
       $('.bxslider > li').eq(0).addClass('active-slide');
@@ -20,5 +22,15 @@ $(document).ready(function () {
       $('.bxslider > li').removeClass('active-slide');
       $slideElement.addClass('active-slide');
     },
+  });
+
+  $('.prev-btn').click(function () {
+    a.goToPrevSlide();
+    return false;
+  });
+
+  $('.next-btn').click(function () {
+    a.goToNextSlide();
+    return false;
   });
 });

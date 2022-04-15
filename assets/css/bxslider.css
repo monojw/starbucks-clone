@@ -38,3 +38,7 @@
   line-height: 34px;
   text-align: center;
 }
+
+.bxslider .bx-clone {
+  display: none;
+}
