@@ -9,7 +9,7 @@ $(document).ready(function () {
     controls: false,
     autoControls: false,
     autoStart: true,
-    infiniteLoop: false,
+    infiniteLoop: true,
     speed: 700,
     prevSelector: '.prev-btn',
     nextSelector: '.next-btn',
@@ -18,12 +18,20 @@ $(document).ready(function () {
     /* 슬라이드 로드되자마자 실행 */
     onSliderLoad: function () {
       $('.bxslider > li').eq(0).addClass('active-slide'); // 첫 번째 <li> 클래스 지정한다.
+      $('.bx-pager-item a').eq(0).addClass('active'); // 처음 pager dot의 스타일을 만든다.
+      $('.bx-start').hide();
     },
 
     /* 슬라이드가 전환되기전 실행 */
     onSlideBefore: function ($slideElement) {
       $('.bxslider > li').removeClass('active-slide'); // 기존 <li> 클래스를 지우고
       $slideElement.addClass('active-slide'); // 다음 <li> 클래스 지정한다.
+    },
+
+    /* 슬라이드가 전환된 후 실행 */
+    onSlideAfter: function ($slideElement, oldIndex, newIndex) {
+      $('.bx-pager-item a').eq(oldIndex).removeClass('active'); // 이전 pager dot의 스타일을 없애고
+      $('.bx-pager-item a').eq(newIndex).addClass('active'); // 다음 pager dot의 스타일을 만든다.
     },
   });
 
@@ -44,10 +52,32 @@ $(document).ready(function () {
   $('.pager a').click(function (e) {
     e.preventDefault();
 
-    /*  let current = $(e.currentTarget);
+    let current = $(e.currentTarget);
     let i = parseInt(current.attr('data-slide-index'));
     if ($(this).attr('data-slide-index') !== undefined) {
       bxSlider.goToSlide(i);
-    } */
+    }
   });
+
+  /* stop버튼 클릭시 이벤트 */
+  $('.bx-stop').click(function (e) {
+    console.log('stop');
+    e.preventDefault();
+    bxSlider.stopAuto();
+    $('.bx-stop').hide();
+    $('.bx-start').show();
+    return false;
+  });
+
+  /* stop버튼 클릭시 이벤트 */
+  $('.bx-start').click(function (e) {
+    console.log('start');
+    e.preventDefault();
+    bxSlider.startAuto();
+    $('.bx-start').hide();
+    $('.bx-stop').show();
+    return false;
+  });
+
+  $('.bx-start').hide();
 });

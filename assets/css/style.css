@@ -593,11 +593,41 @@ body {
     0 0 no-repeat;
   overflow: hidden;
 }
-.promotion .control .pager .bx-pager-item a:active,
-.promotion .control .pager .bx-pager-item a:hover,
-.promotion .control .pager .bx-pager-item a:focus {
+
+.promotion .control .pager .bx-pager-item a.active {
   background: url(https://www.starbucks.co.kr/common/img/main/main_prom_on.png)
     0 0 no-repeat;
+}
+
+.promotion .control .control-container {
+  position: relative;
+  display: inline-block;
+  width: 9px;
+  height: 12px;
+}
+
+.promotion .control .bx-controls-auto {
+  position: absolute;
+}
+
+.promotion .control .bx-stop,
+.promotion .control .bx-start {
+  display: block;
+  overflow: hidden;
+}
+
+.promotion .control .bx-stop {
+  width: 9px;
+  height: 12px;
+  background: url(https://www.starbucks.co.kr/common/img/main/main_prom_stop.png)
+    0 0;
+}
+
+.promotion .control .bx-start {
+  width: 9px;
+  height: 12px;
+  background: url(https://www.starbucks.co.kr/common/img/main/main_prom_play.png)
+    0 0;
 }
 
 /* REWARDS */
