@@ -29,6 +29,9 @@ $(document).ready(function () {
 
       // start 버튼을 숨긴다.
       $('.bx-start').hide();
+
+      // stop 버튼을 보여준다.
+      $('.bx-stop').show();
     },
 
     /* 슬라이드가 전환되기전 실행 */
