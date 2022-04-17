@@ -10,29 +10,42 @@ $(document).ready(function () {
     autoControls: false,
     autoStart: true,
     infiniteLoop: true,
-    speed: 700,
+    speed: 500,
     prevSelector: '.prev-btn',
     nextSelector: '.next-btn',
     pagerCustcom: '.pager',
 
     /* 슬라이드 로드되자마자 실행 */
-    onSliderLoad: function () {
-      $('.bxslider > li').eq(0).addClass('active-slide'); // 첫 번째 <li> 클래스 지정한다.
-      $('.bx-pager-item a').eq(0).addClass('active'); // 처음 pager dot의 스타일을 만든다.
+    onSliderLoad: function (currentIndex) {
+      // 기존의 스타일을 모두 지운다.
+      $('.bxslider > li').removeClass('active-slide');
+      $('.bx-pager-item a').removeClass('active');
+
+      // 첫 번째 <li>의 스타일을 만든다.
+      $('.bxslider > li[aria-hidden=false]').addClass('active-slide');
+
+      // 처음 pager dot의 스타일을 만든다.
+      $('.bx-pager-item a').eq(currentIndex).addClass('active');
+
+      // start 버튼을 숨긴다.
       $('.bx-start').hide();
     },
 
     /* 슬라이드가 전환되기전 실행 */
-    onSlideBefore: function ($slideElement) {
+    onSlideBefore: function ($slideElement, oldIndex, newIndex) {
       $('.bxslider > li').removeClass('active-slide'); // 기존 <li> 클래스를 지우고
       $slideElement.addClass('active-slide'); // 다음 <li> 클래스 지정한다.
-    },
 
-    /* 슬라이드가 전환된 후 실행 */
-    onSlideAfter: function ($slideElement, oldIndex, newIndex) {
       $('.bx-pager-item a').eq(oldIndex).removeClass('active'); // 이전 pager dot의 스타일을 없애고
       $('.bx-pager-item a').eq(newIndex).addClass('active'); // 다음 pager dot의 스타일을 만든다.
     },
+  });
+
+  /* 리로드 이벤트 */
+  $('.prom-btn').click(function () {
+    if ($('.promotion').css('display') === 'block') {
+      bxSlider.reloadSlider();
+    }
   });
 
   /* prev버튼 클릭시 이벤트 */
@@ -61,8 +74,8 @@ $(document).ready(function () {
 
   /* stop버튼 클릭시 이벤트 */
   $('.bx-stop').click(function (e) {
-    console.log('stop');
     e.preventDefault();
+
     bxSlider.stopAuto();
     $('.bx-stop').hide();
     $('.bx-start').show();
@@ -71,8 +84,8 @@ $(document).ready(function () {
 
   /* start버튼 클릭시 이벤트 */
   $('.bx-start').click(function (e) {
-    console.log('start');
     e.preventDefault();
+
     bxSlider.startAuto();
     $('.bx-start').hide();
     $('.bx-stop').show();
