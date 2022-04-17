@@ -41,43 +41,57 @@ document.querySelectorAll('.gnb_bottom_inner > ul > li').forEach((v, i) => {
 });
 
 /* 검색버튼, 클릭 이벤트 */
-const btnSearch = document.querySelector('.gnb_top .btn_search');
+const btnSearch = document.querySelector('.gnb_top .btn_search a');
+const searchBar = document.querySelector('.gnb_top .btn_search input');
+let search = false;
+
 btnSearch.addEventListener('click', (e) => {
   const current = e.currentTarget;
-  current.classList.toggle('show');
 
-  if (current.classList.contains('show')) {
+  if (!search) {
+    // 검색창을 보여준다.
+    current.classList.add('show');
     show(e);
+
+    // 검색창에 포커스를 준다.
+    searchBar.focus();
+
+    // 검색어 입력 체크
+    search = true;
   } else {
-    hide(e);
+    // 검색어가 없다면
+    if (!searchBar.value) {
+      // alert창을 띄운다.
+      alert('검색어를 입력하세요.');
+      searchBar.focus();
+      return;
+    }
+    // 있다면 구글 검색 결과로 이동한다.
+    location.href = `https://www.google.com/search?q=${searchBar.value}`;
+    searchBar.value = '';
   }
 });
 
 // <input>를 보여준다.
 function show(e) {
   const current = e.currentTarget;
-  current.style.width = '180px';
+  current.parentElement.style.width = '180px';
 
-  const icon = current.querySelector('a');
-  icon.style.right = '-5px';
-  icon.style.left = 'unset';
+  current.style.right = '-5px';
+  current.style.left = 'unset';
 
-  const input = current.querySelector('input');
+  const input = document.querySelector('.btn_search input');
   input.style.display = 'block';
 }
 
-// <input>을 숨긴다.
-function hide(e) {
-  const current = e.currentTarget;
-  current.style.width = '34px';
-
-  const icon = current.querySelector('a');
-  icon.style.right = 'unset';
-  icon.style.left = '5px';
-
-  const input = current.querySelector('input');
-  input.style.display = 'none';
-}
+/* <input> 검색어 입력시 이벤트 */
+searchBar.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    location.href = `https://www.google.com/search?q=${searchBar.value}`;
+    searchBar.value = '';
+  }
+});
 
 /* 스크롤시 발생하는 이벤트, 애니메이션을 적용한다. */
 const scroll = document.querySelectorAll('#scroll');

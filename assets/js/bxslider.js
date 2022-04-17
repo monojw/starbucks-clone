@@ -69,7 +69,7 @@ $(document).ready(function () {
     return false;
   });
 
-  /* stop버튼 클릭시 이벤트 */
+  /* start버튼 클릭시 이벤트 */
   $('.bx-start').click(function (e) {
     console.log('start');
     e.preventDefault();
