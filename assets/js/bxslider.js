@@ -10,7 +10,6 @@ $(document).ready(function () {
     autoControls: false,
     autoStart: true,
     infiniteLoop: true,
-    speed: 500,
     prevSelector: '.prev-btn',
     nextSelector: '.next-btn',
     pagerCustcom: '.pager',
@@ -52,15 +51,21 @@ $(document).ready(function () {
   });
 
   /* prev버튼 클릭시 이벤트 */
-  $('.prev-btn').click(function () {
-    bxSlider.goToPrevSlide(); // 이전 슬라이드로 이동한다.
+  $('.prev-btn').click(function (e) {
+    // 빠르게 클릭하는것을 막는다.
+    if (e.detail <= 1) {
+      bxSlider.goToPrevSlide(); // 이전 슬라이드로 이동한다.
+    }
+
     return false;
   });
 
   /* next버튼 클릭시 이벤트 */
-  $('.next-btn').click(function () {
-    bxSlider.goToNextSlide(); // 다음 슬라이드로 이동한다.
-
+  $('.next-btn').click(function (e) {
+    // 빠르게 클릭하는것을 막는다.
+    if (e.detail <= 1) {
+      bxSlider.goToNextSlide(); // 다음 슬라이드로 이동한다.
+    }
     return false;
   });
 
